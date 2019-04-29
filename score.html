@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web App Security Score</title>
+    <link rel="stylesheet" href="bulma.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">	
+    <link rel="stylesheet" href="app.css">
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+ <script src="gauge.js"></script>
+  </head>
+  <body>
+  
+  
+  
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+        <a class="navbar-item" href="index.html">
+            Home
+          </a>
+        <a class="navbar-item" href="score.html">
+            Rate your app
+          </a>
+        <a class="navbar-item" href="score-card.xlsx">
+            Download
+          </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+ 
+    <!--<div class="navbar-end">
+      <div class="navbar-item">
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+      </div>
+    </div> -->
+  </div>
+</nav>
+  
+ 
+  <center><div id="cpuSpeed" class="gauge-container"></div></center>
+  
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+  <div class="column is-one-quarter">
+  
+  <aside class="menu">
+  <p class="menu-label">
+    Questions
+  </p>
+  <ul class="menu-list">
+    <li><a href="javascript:openPanel('panel1v');">Password</a></li>
+    <li><a href="javascript:openPanel('panel2v');">Cookies</a></li>
+	<li><a href="javascript:openPanel('panel3v');">Connection</a></li>
+    <li><a href="javascript:openPanel('panel4v');">Security Questions</a></li>
+    <li><a href="javascript:openPanel('panel5v');">MFA</a></li>
+    <li><a href="javascript:openPanel('panel6v');">Password Reset</a></li>
+    <li><a href="javascript:openPanel('panel7v');">Recently used locations</a></li>
+    <li><a href="javascript:openPanel('panel8v');">UI/UX</a></li>
+    <li><a href="javascript:openPanel('panel9v');">Rate Limiting</a></li>
+  </ul>
+</aside>
+  
+  </div>
+  <div class="column">
+        <div class="tabs-panel is-active" id="panel1v">
+		<p class="menu-label">Password</p>
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="a" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Password policy enforces at least 8 characters long passwords &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="b" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Password policy enforces at least one lower case letter &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="c" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Password policy enforces at least one upper case letter &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="d" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Password policy enforces at least one digit &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="e" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Password policy enforces at least one special character &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="f" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Password expires at least once per year &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="g" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Remembers at least ten old passwords and disallows reusing them &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="h" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Does not allow changing the password more than three times within 12 hours &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="i" class="label__checkbox">
+				 	<span class="label__text">
+					  <span class="label__check">
+						<i class="fa fa-check icon"></i>
+					  </span>
+					  Does not allow commonly used password topologiess &emsp;
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+		
+		
+		
+		
+		<br/>
+        </div>
+        <div class="tabs-panel" id="panel2v">
+		<p class="menu-label">Cookies</p>		
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="j" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Session cookies have the HttpOnply flag set &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="k" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Session cookies have the Secure flag set &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="l" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Session cookies have the SameSite flag set &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="m" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Session cookie is tightly scoped to the path/domain &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="n" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  New session cookies are issued on login, logout and permission change &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+		<br/>
+        </div>
+        <div class="tabs-panel" id="panel3v">
+		<p class="menu-label">Connection</p>
+				
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="o" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Uses HTTPS throughout the session &emsp; 
+					  <span class="tag is-light">3</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="p" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					 SSL implementation gets not red flags from testssl scan &emsp; 
+					  <span class="tag is-light">2</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+         <br/>
+        </div>
+        <div class="tabs-panel" id="panel4v">
+		<p class="menu-label">Security Questions</p>
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="q" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Enforces at least three security questions &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="r" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Enforces minimum length of four-letter for security question answers &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="s" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Security answers are not displayed in clear text &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="t" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  The user can choose their own custom security questions &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="u" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Updating security questions and answers requires logging in again &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+		<br/>
+        </div>
+        <div class="tabs-panel" id="panel5v">
+		<p class="menu-label">MFA</p>
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="v" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Supports multi-factor authentication &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+          <br/>
+        </div>
+        <div class="tabs-panel" id="panel6v">
+		<p class="menu-label">Password Reset</p>		
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="w" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Allows adding multiple email addresses for password reset notifications and account recovery &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="x" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Allows adding multiple phone numbers for password reset notifications and account recovery &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="y" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Updating associated email addresses and phone numbers requires logging in again &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+		<br/>
+        </div>
+        <div class="tabs-panel" id="panel7v">
+		<p class="menu-label">Recently Used Locations</p>				
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="z" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Shows recently used devices and their corresponding information like IP address, operating system, browser etc. &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="aa" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Allows terminating existing opened session on other locations &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+        <br/>
+        </div>
+        <div class="tabs-panel" id="panel8v">
+		<p class="menu-label">UI/UX</p>
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="ab" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Shows password complexity meter or similar mechanism to help use strong password &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="ac" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Uses generic error messages for authentication errors &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+		<br/>
+        </div>
+        <div class="tabs-panel" id="panel9v">
+		<p class="menu-label">Rate Limiting</p>
+		<ul>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="ad" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Shows password complexity meter or similar mechanism to help use strong password &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		<li>
+			<label>
+				<input type="checkbox" name="checkbox" value="value" id="ae" class="label__checkbox">
+				 	<span class="label__text"><span class="label__check"><i class="fa fa-check icon"></i></span>
+					  Uses anti-automation techniques to prevent brute force attacks &emsp; 
+					  <span class="tag is-light">1</span>
+					</span>			
+			</label>
+		</li>
+		</ul>
+        </div></div>
+</div>
+
+	  
+	  
+	  
+	  
+    </div>
+  </section>
+  <script>
+  
+  var score = 0;
+var questions = {a:0,b:0,c:0,d:0,e:0,f:0,g:0,h:0,i:0,j:0,k:0,l:0,m:0,n:0,o:0,p:0,q:0,r:0,s:0,t:0,u:0,v:0,w:0,x:0,y:0,z:0,aa:0,ab:0,ac:0,ad:0,ae:0};
+
+$("#a").click(function(){1==$(this).prop("checked")?questions.a=1:questions.a=0,calculate()});
+$("#b").click(function(){1==$(this).prop("checked")?questions.b=1:questions.b=0,calculate()});
+$("#c").click(function(){1==$(this).prop("checked")?questions.c=1:questions.c=0,calculate()});
+$("#d").click(function(){1==$(this).prop("checked")?questions.d=1:questions.d=0,calculate()});
+$("#e").click(function(){1==$(this).prop("checked")?questions.e=1:questions.e=0,calculate()});
+$("#f").click(function(){1==$(this).prop("checked")?questions.f=1:questions.f=0,calculate()});
+$("#g").click(function(){1==$(this).prop("checked")?questions.g=1:questions.g=0,calculate()});
+$("#h").click(function(){1==$(this).prop("checked")?questions.h=1:questions.h=0,calculate()});
+$("#i").click(function(){1==$(this).prop("checked")?questions.i=1:questions.i=0,calculate()});
+$("#j").click(function(){1==$(this).prop("checked")?questions.j=1:questions.j=0,calculate()});
+$("#k").click(function(){1==$(this).prop("checked")?questions.k=1:questions.k=0,calculate()});
+$("#l").click(function(){1==$(this).prop("checked")?questions.l=1:questions.l=0,calculate()});
+$("#m").click(function(){1==$(this).prop("checked")?questions.m=1:questions.m=0,calculate()});
+$("#n").click(function(){1==$(this).prop("checked")?questions.n=1:questions.n=0,calculate()});
+$("#o").click(function(){1==$(this).prop("checked")?questions.o=3:questions.o=0,calculate()});
+$("#p").click(function(){1==$(this).prop("checked")?questions.p=2:questions.p=0,calculate()});
+$("#q").click(function(){1==$(this).prop("checked")?questions.q=1:questions.q=0,calculate()});
+$("#r").click(function(){1==$(this).prop("checked")?questions.r=1:questions.r=0,calculate()});
+$("#s").click(function(){1==$(this).prop("checked")?questions.s=1:questions.s=0,calculate()});
+$("#t").click(function(){1==$(this).prop("checked")?questions.t=1:questions.t=0,calculate()});
+$("#u").click(function(){1==$(this).prop("checked")?questions.u=1:questions.u=0,calculate()});
+$("#v").click(function(){1==$(this).prop("checked")?questions.v=1:questions.v=0,calculate()});
+$("#w").click(function(){1==$(this).prop("checked")?questions.w=1:questions.w=0,calculate()});
+$("#x").click(function(){1==$(this).prop("checked")?questions.x=1:questions.x=0,calculate()});
+$("#y").click(function(){1==$(this).prop("checked")?questions.y=1:questions.y=0,calculate()});
+$("#z").click(function(){1==$(this).prop("checked")?questions.z=1:questions.z=0,calculate()});
+$("#aa").click(function(){1==$(this).prop("checked")?questions.aa=1:questions.aa=0,calculate()});
+$("#ab").click(function(){1==$(this).prop("checked")?questions.ab=1:questions.ab=0,calculate()});
+$("#ac").click(function(){1==$(this).prop("checked")?questions.ac=1:questions.ac=0,calculate()});
+$("#ad").click(function(){1==$(this).prop("checked")?questions.ad=1:questions.ad=0,calculate()});
+$("#ae").click(function(){1==$(this).prop("checked")?questions.ae=1:questions.ae=0,calculate()});
+
+
+  function openPanel(panelName) {
+    var i;
+    var x = document.getElementsByClassName("tabs-panel");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    document.getElementById(panelName).style.display = "block"; 
+}
+
+
+// Create a new Gauge
+var cpuGauge = Gauge(document.getElementById("cpuSpeed"), {
+    max: 36,
+    // custom label renderer
+    label: function(value) {
+      return Math.round(value) + "/" + this.max;
+    },
+    value: 50,
+    // Custom dial colors (Optional)
+    color: function(value) {
+      if(value < 9) {
+        return "#ef4655"; // red
+      }else if(value < 27) {
+         return "#f7aa38"; // orange
+      }else {
+        return "#5ee432"; // green
+      }
+    }
+});
+
+// Set gauge value
+//cpuGauge.setValue(75);
+
+// Set value and animate (value, animation duration in seconds)
+cpuGauge.setValueAnimated(0, 1);
+
+
+function calculate(){
+	score = 0;
+
+	for (var key in questions) {
+			score = score + questions[key];
+		}
+	
+	cpuGauge.setValueAnimated(score, 1);
+
+	
+}
+</script>
+  </body>
+</html>
